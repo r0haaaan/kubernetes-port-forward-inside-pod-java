@@ -44,7 +44,7 @@ public class PortForwardExample {
             client.pods().inNamespace(namespace).withName(podName).waitUntilReady(10, TimeUnit.SECONDS);
 
             InetAddress inetAddress = InetAddress.getByAddress(new byte[]{0, 0,0,0});
-            LocalPortForward portForward = client.pods().inNamespace("default").withName(podName).portForward( containerPort, 9001);
+            LocalPortForward portForward = client.pods().inNamespace("default").withName(podName).portForward(/*inetAddress, */containerPort, 8080);
             logger.log(Level.INFO, String.format("Pod %s Port forwarded for 60 seconds at http://127.0.0.1:%s", podName, portForward.getLocalPort()));
 
             logger.log(Level.INFO, "Checking forwarded port:-");
