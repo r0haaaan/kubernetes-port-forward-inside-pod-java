@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.fabric8</groupId>
-    <artifactId>port-forward-inside-pod</artifactId>
+    <groupId>in.rohaan</groupId>
+    <artifactId>k8s-port-forward-inside-pod</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
