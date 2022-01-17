@@ -9,8 +9,17 @@ mvn clean install
 ```
 
 ## How to Run?
-You would need to have access to some Kubernetes Cluster in order to test this. I used minikube for testing. First compile
-the project and then use Eclispe JKube's Kubernetes Maven Plugin to deploy this application to Kubernetes
+You would need to have access to some Kubernetes Cluster in order to test this. 
+
+Make sure that you have given correct privileges to ServiceAccount that would be used by the Pod, it's default in our case. Otherwise you might get 403 from Kubernetes API server.
+```shell
+kubectl create clusterrolebinding default-pod --clusterrole cluster-admin --serviceaccount=default:default
+
+# In case of some other namespace:
+kubectl create clusterrolebinding default-pod --clusterrole cluster-admin --serviceaccount=<namespace>:default
+```
+
+I used minikube for testing. First compile the project and then use Eclispe JKube's Kubernetes Maven Plugin to deploy this application to Kubernetes
 ```
 mvn package k8s:build k8s:resource k8s:apply
 ```
